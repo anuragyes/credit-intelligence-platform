@@ -1,0 +1,208 @@
+{
+  "company": {
+    "name": "TATATECH",
+    "ticker": "TATATECH.NS",
+    "exchange": "Unknown",
+    "sector": "Technology",
+    "isin": "UNKNOWN",
+    "cin": "UNKNOWN"
+  },
+  "researchNotes": "Data successfully scraped from Yahoo Finance for TATATECH (TATATECH.NS).",
+  "sources": [
+    {
+      "id": "src-yahoo-finance",
+      "sourceType": "financial_aggregator",
+      "title": "Yahoo Finance - TATATECH",
+      "publisher": "Yahoo Finance API",
+      "url": "https://finance.yahoo.com/quote/TATATECH.NS",
+      "trustScore": 0.95,
+      "trustRationale": "Directly scraped from trusted global financial aggregator API.",
+      "fetchedAt": "2026-08-21",
+      "extractedLineItems": [
+        {
+          "period": "FY2025",
+          "periodEnd": "2025-12-31",
+          "metric": "revenue",
+          "value": 1366,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2025",
+          "periodEnd": "2025-12-31",
+          "metric": "operating_profit",
+          "value": 68,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2025",
+          "periodEnd": "2025-12-31",
+          "metric": "other_income",
+          "value": 32,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2025",
+          "periodEnd": "2025-12-31",
+          "metric": "interest_expense",
+          "value": 9,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2025",
+          "periodEnd": "2025-12-31",
+          "metric": "depreciation",
+          "value": 36,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2025",
+          "periodEnd": "2025-12-31",
+          "metric": "net_profit",
+          "value": 7,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2025",
+          "periodEnd": "2025-12-31",
+          "metric": "total_debt",
+          "value": 938,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2025",
+          "periodEnd": "2025-12-31",
+          "metric": "cash_from_ops",
+          "value": 54,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-03-31",
+          "metric": "revenue",
+          "value": 1572,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-03-31",
+          "metric": "operating_profit",
+          "value": 346,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-03-31",
+          "metric": "other_income",
+          "value": 31,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-03-31",
+          "metric": "interest_expense",
+          "value": 16,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-03-31",
+          "metric": "depreciation",
+          "value": 47,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-03-31",
+          "metric": "net_profit",
+          "value": 204,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-03-31",
+          "metric": "total_debt",
+          "value": 938,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-03-31",
+          "metric": "cash_from_ops",
+          "value": 277,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-06-30",
+          "metric": "revenue",
+          "value": 1664,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-06-30",
+          "metric": "operating_profit",
+          "value": 314,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-06-30",
+          "metric": "other_income",
+          "value": 37,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-06-30",
+          "metric": "interest_expense",
+          "value": 15,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-06-30",
+          "metric": "depreciation",
+          "value": 47,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-06-30",
+          "metric": "net_profit",
+          "value": 181,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-06-30",
+          "metric": "total_debt",
+          "value": 938,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-06-30",
+          "metric": "cash_from_ops",
+          "value": 251,
+          "unit": "INR_CR"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-06-30",
+          "metric": "debtor_days",
+          "value": 221,
+          "unit": "days"
+        },
+        {
+          "period": "FY2026",
+          "periodEnd": "2026-06-30",
+          "metric": "working_capital_days",
+          "value": 491,
+          "unit": "days"
+        }
+      ]
+    }
+  ],
+  "derivedDiscrepancies": []
+}
