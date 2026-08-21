@@ -1,0 +1,11 @@
+{
+  "name": "credit-intelligence-platform",
+  "version": "1.0.0",
+  "description": "Credit Intelligence Platform - Root project",
+  "private": true,
+  "scripts": {
+    "install": "npm install --prefix backend && npm install --prefix frontend",
+    "build": "npm run build --prefix frontend && npm run prisma:generate --prefix backend && npm run prisma:migrate --prefix backend",
+    "start": "npm start --prefix backend"
+  }
+}

@@ -11,6 +11,12 @@ import { companyFinancialsRouter, discrepanciesRouter } from './modules/financia
 import { companyRecommendationRouter, evidenceRouter } from './modules/recommendations/recommendationsRoutes.js';
 import { agentRunsRouter } from './modules/agentRuns/agentRunsRoutes.js';
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export function createApp() {
   const app = express();
 
@@ -24,12 +30,21 @@ export function createApp() {
 
   app.use('/api/auth', authRouter);
   app.use('/api/companies', companiesRouter);
-  // Nested company sub-resources — each router uses mergeParams to read :id
   app.use('/api/companies/:id', companyFinancialsRouter);
   app.use('/api/companies/:id', companyRecommendationRouter);
   app.use('/api/discrepancies', discrepanciesRouter);
   app.use('/api/evidence', evidenceRouter);
   app.use('/api/agent-runs', agentRunsRouter);
+
+  // Serve frontend static files
+  const frontendDistPath = path.join(__dirname, '../../frontend/dist');
+  app.use(express.static(frontendDistPath));
+  
+  // Catch-all route for SPA navigation
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api/')) return next();
+    res.sendFile(path.join(frontendDistPath, 'index.html'));
+  });
 
   app.use(notFoundHandler);
   app.use(errorHandler);
