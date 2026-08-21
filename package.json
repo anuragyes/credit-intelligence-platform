@@ -4,7 +4,7 @@
   "description": "Credit Intelligence Platform - Root project",
   "private": true,
   "scripts": {
-    "install": "npm install --prefix backend && npm install --prefix frontend",
+    "install": "npm install --prefix backend --include=dev && npm install --prefix frontend --include=dev",
     "build": "npm run build --prefix frontend && npm run prisma:generate --prefix backend && npm run prisma:migrate --prefix backend",
     "start": "npm start --prefix backend"
   },
