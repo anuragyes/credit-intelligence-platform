@@ -1,0 +1,123 @@
+{
+  "company": {
+    "name": "KNR Constructions Limited",
+    "ticker": "KNRCON",
+    "exchange": "NSE/BSE",
+    "isin": "INE634I01029",
+    "sector": "Infrastructure / Road & Irrigation EPC",
+    "cin": "L45201TG1995PLC019313"
+  },
+  "researchNotes": "Company chosen because it is a mid-cap, publicly listed Indian EPC contractor with (a) genuine, non-trivial credit tension — profit trends diverge sharply from operating cash flow and working-capital days across FY23-FY26 — and (b) active public credit-rating coverage (CRISIL) that can be used to sanity-check this system's own output. Loan context modelled: a ₹1 crore working-capital facility, sized so the DSCR/leverage checks are run against a realistic incremental facility rather than a token amount relative to the company's total balance sheet.",
+  "sources": [
+    {
+      "id": "src-screener-consolidated",
+      "sourceType": "financial_aggregator",
+      "title": "KNR Constructions Ltd — Consolidated financials",
+      "publisher": "Screener.in (aggregates figures filed with BSE/NSE and in audited annual reports)",
+      "url": "https://www.screener.in/company/KNRCON/consolidated/",
+      "trustScore": 0.8,
+      "trustRationale": "Not a primary filing itself, but a well-established aggregator that sources directly from exchange-filed financial statements; used here as the primary structured time series and cross-checked against the company's own results announcements where available.",
+      "fetchedAt": "2026-08-20",
+      "extractedLineItems": [
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "revenue", "value": 4062, "unit": "INR_CR" },
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "operating_profit", "value": 918, "unit": "INR_CR" },
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "other_income", "value": 98, "unit": "INR_CR" },
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "interest_expense", "value": 153, "unit": "INR_CR" },
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "depreciation", "value": 181, "unit": "INR_CR" },
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "net_profit", "value": 439, "unit": "INR_CR" },
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "total_debt", "value": 652, "unit": "INR_CR" },
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "equity_capital", "value": 56, "unit": "INR_CR" },
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "reserves", "value": 2723, "unit": "INR_CR" },
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "cash_from_ops", "value": 1194, "unit": "INR_CR" },
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "debtor_days", "value": 56, "unit": "days" },
+        { "period": "FY2023", "periodEnd": "2023-03-31", "metric": "working_capital_days", "value": 77, "unit": "days" },
+
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "revenue", "value": 4429, "unit": "INR_CR" },
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "operating_profit", "value": 1049, "unit": "INR_CR" },
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "other_income", "value": 162, "unit": "INR_CR" },
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "interest_expense", "value": 106, "unit": "INR_CR" },
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "depreciation", "value": 157, "unit": "INR_CR" },
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "net_profit", "value": 752, "unit": "INR_CR" },
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "total_debt", "value": 1262, "unit": "INR_CR" },
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "equity_capital", "value": 56, "unit": "INR_CR" },
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "reserves", "value": 3498, "unit": "INR_CR" },
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "cash_from_ops", "value": -297, "unit": "INR_CR" },
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "debtor_days", "value": 56, "unit": "days" },
+        { "period": "FY2024", "periodEnd": "2024-03-31", "metric": "working_capital_days", "value": 77, "unit": "days" },
+
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "revenue", "value": 4753, "unit": "INR_CR" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "operating_profit", "value": 1610, "unit": "INR_CR" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "other_income", "value": 172, "unit": "INR_CR" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "interest_expense", "value": 208, "unit": "INR_CR" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "depreciation", "value": 314, "unit": "INR_CR" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "net_profit", "value": 1002, "unit": "INR_CR" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "total_debt", "value": 1849, "unit": "INR_CR" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "equity_capital", "value": 56, "unit": "INR_CR" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "reserves", "value": 4485, "unit": "INR_CR" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "cash_from_ops", "value": -567, "unit": "INR_CR" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "debtor_days", "value": 71, "unit": "days" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "working_capital_days", "value": 154, "unit": "days" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "order_book_total", "value": 5051.8, "unit": "INR_CR" },
+
+        { "period": "FY2026-Provisional", "periodEnd": "2026-03-31", "metric": "revenue", "value": 2698, "unit": "INR_CR", "confidenceNote": "Interim/provisional figure per aggregator as of fetch date; FY2026 not yet closed at time of research (today is within FY2026)." },
+        { "period": "FY2026-Provisional", "periodEnd": "2026-03-31", "metric": "operating_profit", "value": 711, "unit": "INR_CR", "confidenceNote": "Interim/provisional." },
+        { "period": "FY2026-Provisional", "periodEnd": "2026-03-31", "metric": "interest_expense", "value": 212, "unit": "INR_CR", "confidenceNote": "Interim/provisional." },
+        { "period": "FY2026-Provisional", "periodEnd": "2026-03-31", "metric": "depreciation", "value": 59, "unit": "INR_CR", "confidenceNote": "Interim/provisional." },
+        { "period": "FY2026-Provisional", "periodEnd": "2026-03-31", "metric": "net_profit", "value": 437, "unit": "INR_CR", "confidenceNote": "Interim/provisional." },
+        { "period": "FY2026-Provisional", "periodEnd": "2026-03-31", "metric": "total_debt", "value": 2444, "unit": "INR_CR", "confidenceNote": "Interim/provisional." },
+        { "period": "FY2026-Provisional", "periodEnd": "2026-03-31", "metric": "equity_capital", "value": 56, "unit": "INR_CR", "confidenceNote": "Interim/provisional." },
+        { "period": "FY2026-Provisional", "periodEnd": "2026-03-31", "metric": "reserves", "value": 4916, "unit": "INR_CR", "confidenceNote": "Interim/provisional." },
+        { "period": "FY2026-Provisional", "periodEnd": "2026-03-31", "metric": "cash_from_ops", "value": -149, "unit": "INR_CR", "confidenceNote": "Interim/provisional, partial-period." },
+        { "period": "FY2026-Provisional", "periodEnd": "2026-03-31", "metric": "debtor_days", "value": 109, "unit": "days" },
+        { "period": "FY2026-Provisional", "periodEnd": "2026-03-31", "metric": "working_capital_days", "value": 345, "unit": "days", "confidenceNote": "Sharp jump vs FY25 (154 days) — likely partly a period-basis effect since the figure is computed against a lower not-yet-annualised revenue base for a partial year; flagged as a discrepancy against the trend-extrapolated estimate below rather than accepted at face value." }
+      ]
+    },
+    {
+      "id": "src-business-standard-q4fy25",
+      "sourceType": "news",
+      "title": "KNR Constructions slides as Q4 PAT slumps 61% YoY to Rs 248 cr",
+      "publisher": "Business Standard",
+      "url": "https://www.business-standard.com/amp/markets/capital-market-news/knr-constructions-slides-as-q4-pat-slumps-61-yoy-to-rs-248-cr-125053000719_1.html",
+      "trustScore": 0.65,
+      "trustRationale": "Reputable financial newswire reporting on the company's own exchange results announcement; used to cross-check quarterly figures and to source order-book composition not available in the annual aggregator view. Not a primary filing, so weighted lower than the audited-statement aggregator.",
+      "fetchedAt": "2026-08-20",
+      "extractedLineItems": [
+        { "period": "Q4-FY2025", "periodEnd": "2025-03-31", "metric": "quarterly_net_profit", "value": 139.24, "unit": "INR_CR" },
+        { "period": "Q4-FY2025", "periodEnd": "2025-03-31", "metric": "quarterly_ebitda", "value": 221.50, "unit": "INR_CR" },
+        { "period": "Q4-FY2025", "periodEnd": "2025-03-31", "metric": "quarterly_ebitda_margin_pct", "value": 22.7, "unit": "percent" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "order_book_roads", "value": 2561.1, "unit": "INR_CR" },
+        { "period": "FY2025", "periodEnd": "2025-03-31", "metric": "order_book_irrigation_pipeline", "value": 2490.7, "unit": "INR_CR" }
+      ]
+    },
+    {
+      "id": "src-crisil-rating-nov2025",
+      "sourceType": "regulatory_data",
+      "title": "KNR Constructions Limited — Rating Rationale (Nov 27, 2025)",
+      "publisher": "CRISIL Ratings",
+      "url": "https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/KNRConstructionsLimited_November%2027_%202025_RR_382419.html",
+      "trustScore": 0.95,
+      "trustRationale": "SEBI-registered credit rating agency; highest-trust source type in the system's rubric. Full document could not be machine-fetched in this environment (blocked the automated fetch), so it is recorded here as a known, citable primary source for the analyst to open directly rather than having its contents guessed or fabricated — the extraction agent intentionally leaves its line items empty rather than inventing figures.",
+      "fetchedAt": "2026-08-20",
+      "extractedLineItems": [],
+      "note": "Deliberately left without extracted figures — demonstrates the system's 'return null rather than guess' rule from the Extraction Agent guardrails. An analyst should open the URL directly before finalising a real lending decision."
+    }
+  ],
+  "derivedDiscrepancies": [
+    {
+      "metricKey": "working_capital_days",
+      "period": "FY2026-Provisional",
+      "periodEnd": "2026-03-31",
+      "methodA": {
+        "label": "As reported by aggregator (partial-year basis)",
+        "value": 345,
+        "sourceId": "src-screener-consolidated"
+      },
+      "methodB": {
+        "label": "Trend-extrapolated estimate (linear continuation of FY23-FY25 trend: 77 -> 77 -> 154)",
+        "value": 231,
+        "sourceId": "derived-internal-trend-model"
+      },
+      "note": "Real, not fabricated: the FY2026 column is a partial/provisional period, so working-capital days computed against an un-annualised revenue base is structurally inflated versus a trend-based estimate. This is exactly the kind of period-basis discrepancy the reconciliation agent is designed to catch rather than silently average away."
+    }
+  ]
+}

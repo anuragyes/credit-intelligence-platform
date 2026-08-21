@@ -1,0 +1,215 @@
+// Credit Intelligence Platform — Prisma schema
+// Mirrors ARCHITECTURE.md §6. Provenance is structural: every derived fact
+// carries a foreign key back toward the raw source that produced it.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("analyst") // analyst | admin
+  createdAt    DateTime @default(now())
+  auditLogs    AuditLog[]
+  companies    Company[]
+}
+
+model Company {
+  id         String   @id @default(uuid())
+  name       String
+  companyKey String   @unique // maps to backend/data/<companyKey>.sources.json for the research agent
+  ticker    String?
+  isin      String?
+  cin       String?
+  sector    String?
+  exchange  String?
+  createdBy String?
+  creator   User?    @relation(fields: [createdBy], references: [id])
+  createdAt DateTime @default(now())
+
+  dataSources           DataSource[]
+  lineItems             FinancialLineItem[]
+  normalizedFinancials  NormalizedFinancial[]
+  metricsDerived        MetricDerived[]
+  riskSignals           RiskSignal[]
+  discrepancies         Discrepancy[]
+  recommendations       Recommendation[]
+  agentRuns             AgentRun[]
+}
+
+model DataSource {
+  id             String   @id @default(uuid())
+  companyId      String
+  company        Company  @relation(fields: [companyId], references: [id])
+  sourceType     String   // exchange_filing | annual_report | quarterly_result | regulatory_data | news | financial_aggregator | other
+  title          String
+  publisher      String?
+  url            String?
+  trustScore     Float
+  trustRationale String?
+  fetchedAt      DateTime @default(now())
+
+  documents      Document[]
+  lineItems      FinancialLineItem[]
+}
+
+model Document {
+  id              String   @id @default(uuid())
+  sourceId        String
+  source          DataSource @relation(fields: [sourceId], references: [id])
+  docType         String?
+  periodLabel     String?
+  periodEnd       DateTime?
+  parseStatus     String   @default("parsed") // pending | parsed | failed
+}
+
+model FinancialLineItem {
+  id              String   @id @default(uuid())
+  companyId       String
+  company         Company  @relation(fields: [companyId], references: [id])
+  sourceId        String
+  source          DataSource @relation(fields: [sourceId], references: [id])
+  statementType   String?  // pnl | balance_sheet | cash_flow | working_capital | order_book
+  lineItem        String   // canonical metric key
+  periodLabel     String
+  periodEnd       DateTime
+  value           Float?
+  unit            String   @default("INR_CR")
+  extractedBy     String   @default("extraction_agent")
+  confidence      Float    @default(0.7)
+  sourceSnippet   String?
+  createdAt       DateTime @default(now())
+}
+
+model NormalizedFinancial {
+  id                 String   @id @default(uuid())
+  companyId          String
+  company            Company  @relation(fields: [companyId], references: [id])
+  periodLabel        String
+  periodEnd          DateTime
+  metricKey          String
+  value              Float?
+  confidence         Float    @default(0.7)
+  sourceLineItemIds  String[]
+
+  @@unique([companyId, periodEnd, metricKey])
+}
+
+model MetricDerived {
+  id           String   @id @default(uuid())
+  companyId    String
+  company      Company  @relation(fields: [companyId], references: [id])
+  periodLabel  String
+  periodEnd    DateTime
+  metricName   String
+  value        Float?
+  formula      String?
+  inputs       Json?
+  trend        String?  // improving | stable | deteriorating
+
+  evidenceOf   RecommendationEvidence[]
+}
+
+model RiskSignal {
+  id                  String   @id @default(uuid())
+  companyId           String
+  company             Company  @relation(fields: [companyId], references: [id])
+  signalKey           String
+  severity            String   // low | medium | high
+  direction           String   // risk | opportunity
+  description         String
+  evidenceMetricNames String[]
+  confidence          Float    @default(0.7)
+  detectedAt          DateTime @default(now())
+
+  evidenceOf          RecommendationEvidence[]
+}
+
+model Discrepancy {
+  id                  String   @id @default(uuid())
+  companyId           String
+  company             Company  @relation(fields: [companyId], references: [id])
+  metricKey           String
+  periodLabel         String
+  periodEnd           DateTime
+  labelA              String
+  valueA              Float
+  sourceRefA          String?
+  labelB               String
+  valueB              Float
+  sourceRefB           String?
+  deltaPct             Float?
+  resolutionStrategy    String?  // prefer_higher_trust_source | average | manual | unresolved
+  resolvedValue         Float?
+  resolvedConfidence    Float?
+  status                String   @default("open") // open | resolved | flagged_for_analyst
+  note                  String?
+  createdAt             DateTime @default(now())
+
+  evidenceOf            RecommendationEvidence[]
+}
+
+model Recommendation {
+  id                    String   @id @default(uuid())
+  companyId             String
+  company               Company  @relation(fields: [companyId], references: [id])
+  loanAmountRequested    Float
+  decision               String   // APPROVE | APPROVE_WITH_CONDITIONS | DECLINE
+  overallConfidence      Float
+  scoreBreakdown         Json
+  narrative              String?
+  version                Int      @default(1)
+  generatedAt            DateTime @default(now())
+
+  evidence               RecommendationEvidence[]
+}
+
+model RecommendationEvidence {
+  id                String   @id @default(uuid())
+  recommendationId  String
+  recommendation    Recommendation @relation(fields: [recommendationId], references: [id])
+  evidenceType      String   // metric | signal | discrepancy
+  metricId          String?
+  metric            MetricDerived? @relation(fields: [metricId], references: [id])
+  signalId          String?
+  signal            RiskSignal? @relation(fields: [signalId], references: [id])
+  discrepancyId     String?
+  discrepancy       Discrepancy? @relation(fields: [discrepancyId], references: [id])
+  weight            Float?
+  note              String?
+}
+
+model AgentRun {
+  id              String    @id @default(uuid())
+  companyId       String
+  company         Company   @relation(fields: [companyId], references: [id])
+  stage           String    // research | extraction | reconciliation | analysis | scoring | narrative
+  status          String    // running | succeeded | failed
+  inputSnapshot   Json?
+  outputSnapshot  Json?
+  modelUsed       String?
+  tokensUsed      Int?
+  latencyMs       Int?
+  error           String?
+  startedAt       DateTime  @default(now())
+  completedAt     DateTime?
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String
+  entity    String?
+  entityId  String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+}
