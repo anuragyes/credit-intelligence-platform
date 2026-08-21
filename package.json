@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "install": "npm install --prefix backend --include=dev && npm install --prefix frontend --include=dev",
-    "build": "npm run build --prefix frontend && npm run prisma:generate --prefix backend && npm run prisma:migrate --prefix backend",
+    "build": "npm run build --prefix frontend && npm run prisma:generate --prefix backend && npm run prisma:deploy --prefix backend",
     "start": "npm start --prefix backend"
   },
   "engines": {
