@@ -1,0 +1,26 @@
+databases:
+  - name: credit-intel-db
+    databaseName: credit_intelligence
+    user: credituser
+    plan: free
+
+services:
+  - type: web
+    name: credit-intel-app
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: credit-intel-db
+          property: connectionString
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false
